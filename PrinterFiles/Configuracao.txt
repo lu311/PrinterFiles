@@ -1,0 +1,3 @@
+﻿TimeCheck=60
+Folder=E:\Temp\PDF
+FolderMove=E:\Temp\PDF\Deletar

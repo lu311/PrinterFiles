@@ -16,7 +16,10 @@ namespace PrinterFiles
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            Config.LerFileConfig();
+
+            Application.Run(new FrmPrincipal());
         }
     }
 }
