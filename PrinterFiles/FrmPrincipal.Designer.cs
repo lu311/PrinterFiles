@@ -36,6 +36,7 @@
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.lblContador = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblPrintCont = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +56,8 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripProgressBar1,
-            this.lblContador});
+            this.lblContador,
+            this.lblPrintCont});
             this.statusStrip1.Location = new System.Drawing.Point(0, 151);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -87,6 +89,14 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // lblPrintCont
+            // 
+            this.lblPrintCont.ForeColor = System.Drawing.Color.Blue;
+            this.lblPrintCont.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
+            this.lblPrintCont.Name = "lblPrintCont";
+            this.lblPrintCont.Size = new System.Drawing.Size(37, 17);
+            this.lblPrintCont.Text = "00000";
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -113,6 +123,7 @@
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripStatusLabel lblContador;
+        private System.Windows.Forms.ToolStripStatusLabel lblPrintCont;
     }
 }
 

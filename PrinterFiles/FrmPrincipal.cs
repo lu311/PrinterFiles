@@ -11,6 +11,7 @@ namespace PrinterFiles
     {
         static List<string> lstFilePrintOK = new List<string>();
         int contador = 0;
+        int contprint = 0;
 
         public FrmPrincipal()
         {
@@ -31,8 +32,13 @@ namespace PrinterFiles
             {
                 if (!lstFilePrintOK.Contains(item.Name))
                 {
-                    PrintPdf($"{Config.Folder}\\{item.Name}");
-                    lstFilePrintOK.Add(item.Name);
+                    if (File.Exists($"{Config.Folder}\\{item.Name}"))
+                    {
+                        PrintPdf($"{Config.Folder}\\{item.Name}");
+                        lstFilePrintOK.Add(item.Name);
+                        contprint += 1;
+                        lblPrintCont.Text = contprint.ToString();
+                    }
                 }
             }
 
