@@ -34,8 +34,8 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblContador = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,8 +66,8 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(160, 17);
-            this.toolStripStatusLabel1.Text = "Dev. Luciano (43) 99128-4623";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(123, 17);
+            this.toolStripStatusLabel1.Text = "Dev. Luciano Andrade";
             // 
             // toolStripProgressBar1
             // 
@@ -76,16 +76,16 @@
             this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
             this.toolStripProgressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // lblContador
             // 
             this.lblContador.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
             this.lblContador.Name = "lblContador";
             this.lblContador.Size = new System.Drawing.Size(37, 17);
             this.lblContador.Text = "00000";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FrmPrincipal
             // 
