@@ -35,17 +35,18 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.lblContador = new System.Windows.Forms.ToolStripStatusLabel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblPrintCont = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.txtMensagem = new System.Windows.Forms.RichTextBox();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(67, 44);
+            this.button1.Location = new System.Drawing.Point(12, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(269, 68);
+            this.button1.Size = new System.Drawing.Size(364, 48);
             this.button1.TabIndex = 0;
             this.button1.Text = "Checar e Imprimir";
             this.button1.UseVisualStyleBackColor = true;
@@ -58,10 +59,10 @@
             this.toolStripProgressBar1,
             this.lblContador,
             this.lblPrintCont});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 151);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 224);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.statusStrip1.Size = new System.Drawing.Size(414, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(388, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -85,10 +86,6 @@
             this.lblContador.Size = new System.Drawing.Size(37, 17);
             this.lblContador.Text = "00000";
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // lblPrintCont
             // 
             this.lblPrintCont.ForeColor = System.Drawing.Color.Blue;
@@ -97,11 +94,25 @@
             this.lblPrintCont.Size = new System.Drawing.Size(37, 17);
             this.lblPrintCont.Text = "00000";
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // txtMensagem
+            // 
+            this.txtMensagem.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMensagem.Location = new System.Drawing.Point(12, 77);
+            this.txtMensagem.Name = "txtMensagem";
+            this.txtMensagem.Size = new System.Drawing.Size(364, 131);
+            this.txtMensagem.TabIndex = 2;
+            this.txtMensagem.Text = "";
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(414, 173);
+            this.ClientSize = new System.Drawing.Size(388, 246);
+            this.Controls.Add(this.txtMensagem);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.statusStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -124,6 +135,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripStatusLabel lblContador;
         private System.Windows.Forms.ToolStripStatusLabel lblPrintCont;
+        private System.Windows.Forms.RichTextBox txtMensagem;
     }
 }
 

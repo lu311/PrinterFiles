@@ -33,7 +33,7 @@ namespace PrinterFiles
             FileInfo[] files = null;
 
             if (directoryInfo.Exists)
-                files = directoryInfo.GetFiles();
+                files = directoryInfo.GetFiles("*.PDF");
             else
                 return;
 

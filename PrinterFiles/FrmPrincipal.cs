@@ -18,7 +18,7 @@ namespace PrinterFiles
             InitializeComponent();
 
             timer1.Interval = Convert.ToInt16(Config.TimeCheck) * 1000;
-            timer1.Start();
+            timer1.Start();            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -34,10 +34,18 @@ namespace PrinterFiles
                 {
                     if (File.Exists($"{Config.Folder}\\{item.Name}"))
                     {
-                        PrintPdf($"{Config.Folder}\\{item.Name}");
-                        lstFilePrintOK.Add(item.Name);
-                        contprint += 1;
-                        lblPrintCont.Text = contprint.ToString();
+                        try
+                        {
+                            PrintPdf($"{Config.Folder}\\{item.Name}");
+                            lstFilePrintOK.Add(item.Name);
+                            contprint += 1;
+                            lblPrintCont.Text = contprint.ToString();
+                        }
+                        catch (Exception)
+                        {
+                            lstFilePrintOK.Add(item.Name);
+                            throw;
+                        }
                     }
                 }
             }
@@ -50,22 +58,35 @@ namespace PrinterFiles
             button1_Click(null, null);
         }
 
-        public static void PrintPdf(string pdfPath)
+        public void PrintPdf(string pdfPath)
         {
             // https://github.com/pvginkel/PdfiumBuild/tree/master/Builds/2018-04-08
             // DLL x64 Download - Run Program Base x64
-            using (var document = PdfDocument.Load(pdfPath))
+            
+            try
             {
-                using (var printDocument = document.CreatePrintDocument())
+                using (var document = PdfDocument.Load(pdfPath))
                 {
-                    printDocument.PrinterSettings.PrinterName = new PrinterSettings().PrinterName;
-                    printDocument.PrintController = new StandardPrintController();
-                    printDocument.Print();
+                    using (var printDocument = document.CreatePrintDocument())
+                    {
+                        printDocument.PrinterSettings.PrinterName = new PrinterSettings().PrinterName;
+                        printDocument.PrintController = new StandardPrintController();
+                        printDocument.Print();
+                        printDocument.Dispose();
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                txtMensagem.Text += "\n Falhar ao imprimir o arquivo. Verifique se o arquivo é mesmo uma PDF. " +
+                 $"{pdfPath} - {ex.Message}";
+               
+                //throw;
+            }
+
         }
 
-        public static void FileMove()
+        public void FileMove()
         {
             try
             {
@@ -80,8 +101,7 @@ namespace PrinterFiles
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Falha ao move o arquivo." +
-                    "\n Feche os arquivos aberto no computador. \n" + ex.Message);
+                txtMensagem.Text += "\n Falha ao move o arquivo. Feche os arquivos aberto no computador. \n" + ex.Message;
             }
         }
     }
